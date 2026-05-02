@@ -11,7 +11,7 @@ It provides a shared, machine-readable language for describing:
 * regulatory obligations
 * and potential areas of conflict across regulators
 
-vidhi-lang is designed for India's regulatory landscape — including the Digital Personal Data Protection Act, 2023, IRDAI regulations, RBI directives, and others — where multiple authorities impose overlapping requirements on the same data.
+vidhi-lang is designed for India's regulatory landscape — including the Digital Personal Data Protection Act, 2023, IRDAI regulations, RBI directives, and others, where multiple authorities impose overlapping requirements on the same data.
 
 Inspired by fideslang, vidhi-lang adapts the concept to India's regulatory environment.
 
@@ -41,11 +41,12 @@ Format:
 <subject>.<category>.<subtype>
 
 Examples
-Type            |    ID
-Health data     |    user.health
-PAN             |    user.kyc.pan
-Aadhaar         |    user.kyc.aadhaar
-System logs     |    system.logs
+| Type        | ID               |
+|-------------|------------------|
+| Health data | user.health      |
+| PAN         | user.kyc.pan     |
+| Aadhaar     | user.kyc.aadhaar |
+| System logs | system.logs      |
       
 This structure enables grouping, filtering, and future extensibility
 
@@ -58,10 +59,11 @@ Format:
 <authority>.<action>.<object>
 
 Examples
-Type            |    ID
-Retain health   |    irdai.retain.health
-Erase health    |    dpdp.erase.personal
-Collect KYC     |    rbi.collect.kyc
+| Type          | ID                  |
+|---------------|---------------------|
+| Retain health | irdai.retain.health |
+| Erase health  | dpdp.erase.personal |
+| Collect KYC   | rbi.collect.kyc     |
       
 Rules:
 * keep short and readable
@@ -72,19 +74,19 @@ Format:
 <concept>_vs_<concept>
 
 Examples
-Type                                  |    ID
-Retention vs Erasure                  |    retention_vs_erasure
-Consent vs Legal Obligation           |    consent_vs_legal_obligation
-Purpose vs Regulatory use             |    purpose_vs_regulatory_use
+| Type                        | ID                          |
+|-----------------------------|-----------------------------|
+| Retention vs Erasure        | retention_vs_erasure        |
+| Consent vs Legal Obligation | consent_vs_legal_obligation |
+| Purpose vs Regulatory use   | purpose_vs_regulatory_use   |
+
       
 Rules:
 * use snake_case
 * no hierarchy required
 
-
-
-
 ---
+
 ## What vidhi-lang does
 
 vidhi-lang enables:
@@ -205,19 +207,21 @@ This ensures vidhi-lang remains a shared standard without embedding legal interp
 ## Repository structure
 
 ```text
-vidhi-lang/
-├── taxonomies/
-│   ├── data_categories.yaml
-│   └── legal_bases.yaml
-├── obligations/
-│   ├── dpdp.yaml
-│   └── irdai.yaml
-├── conflicts/
-│   └── conflict_types.yaml
-├── manifests/
-│   └── insurance_sample.yaml
-├── examples/
-└── README.md
+| vidhi-lang/                   |
+|-------------------------------|
+| ├── taxonomies/               |
+| │   ├── data_categories.yaml  |
+| │   └── legal_bases.yaml      |
+| ├── obligations/              |
+| │   ├── dpdp.yaml             |
+| │   └── irdai.yaml            |
+| ├── conflicts/                |
+| │   └── conflict_types.yaml   |
+| ├── manifests/                |
+| │   └── insurance_sample.yaml |
+| ├── examples/                 |
+| └── README.md                 |
+
 ```
 
 ---
