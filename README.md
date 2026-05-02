@@ -32,11 +32,11 @@ vidhi-lang provides a common language to bridge this gap.
 
 ---
 
-##ID Conventions
+## ID Conventions
 
 vidhi-lang uses dot notation for stable, hierarchial identifiers.
 
-1. Data Categories (strict hierarchy)
+### 1. Data Categories (strict hierarchy)
       Format:
       <subject>.<category>.<subtype>
 
@@ -54,7 +54,7 @@ vidhi-lang uses dot notation for stable, hierarchial identifiers.
       * lowercase, dot-separated
       * stable identifiers (referenced across files)
 
-2. Obligations (structured, readable)
+### 2. Obligations (structured, readable)
       Format:
       <authority>.<action>.<object>
       
@@ -69,7 +69,7 @@ vidhi-lang uses dot notation for stable, hierarchial identifiers.
       * keep short and readable
       * avoid deep nesting
 
-3. Conflicts (simple identifiers)
+### 3. Conflicts (simple identifiers)
       Format:
       <concept>_vs_<concept>
       
@@ -136,7 +136,7 @@ These responsibilities are left to implementing systems and organizations.
 ```yaml
 # obligations/irdai.yaml
 
-- id: IRDAI_7_YEARS
+- id: irdai.retain.health
   description: Retain health records for 7 years
   applies_to:
     - user.health
@@ -145,7 +145,7 @@ These responsibilities are left to implementing systems and organizations.
 ```yaml
 # obligations/dpdp.yaml
 
-- id: DPDP_ERASURE
+- id: dpdp.erase.personal
   description: Data principal has right to erasure
   applies_to:
     - user.health
@@ -171,7 +171,7 @@ legal_basis:
   - contract
 data_used:
   - user.health
-retention_rule: IRDAI_7_YEARS
+retention_rule: irdai.retain.health
 ```
 
 ---
