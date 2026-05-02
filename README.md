@@ -32,58 +32,58 @@ vidhi-lang provides a common language to bridge this gap.
 
 ---
 ---
-ID Conventions
+##ID Conventions
 
 vidhi-lang uses dot notation for stable, hierarchial identifiers.
 
 1. Data Categories (strict hierarchy)
-Format:
-<subject>.<category>.<subtype>
+      Format:
+      <subject>.<category>.<subtype>
 
-Examples
-| Type        | ID               |
-|-------------|------------------|
-| Health data | user.health      |
-| PAN         | user.kyc.pan     |
-| Aadhaar     | user.kyc.aadhaar |
-| System logs | system.logs      |
+      Examples
+      | Type        | ID               |
+      |-------------|------------------|
+      | Health data | user.health      |
+      | PAN         | user.kyc.pan     |
+      | Aadhaar     | user.kyc.aadhaar |
+      | System logs | system.logs      |
+            
+      This structure enables grouping, filtering, and future extensibility
       
-This structure enables grouping, filtering, and future extensibility
-
-Rules:
-* lowercase, dot-separated
-* stable identifiers (referenced across files)
+      Rules:
+      * lowercase, dot-separated
+      * stable identifiers (referenced across files)
 
 2. Obligations (structured, readable)
-Format:
-<authority>.<action>.<object>
-
-Examples
-| Type          | ID                  |
-|---------------|---------------------|
-| Retain health | irdai.retain.health |
-| Erase health  | dpdp.erase.personal |
-| Collect KYC   | rbi.collect.kyc     |
+      Format:
+      <authority>.<action>.<object>
       
-Rules:
-* keep short and readable
-* avoid deep nesting
+      Examples
+      | Type          | ID                  |
+      |---------------|---------------------|
+      | Retain health | irdai.retain.health |
+      | Erase health  | dpdp.erase.personal |
+      | Collect KYC   | rbi.collect.kyc     |
+            
+      Rules:
+      * keep short and readable
+      * avoid deep nesting
 
 3. Conflicts (simple identifiers)
-Format:
-<concept>_vs_<concept>
-
-Examples
-| Type                        | ID                          |
-|-----------------------------|-----------------------------|
-| Retention vs Erasure        | retention_vs_erasure        |
-| Consent vs Legal Obligation | consent_vs_legal_obligation |
-| Purpose vs Regulatory use   | purpose_vs_regulatory_use   |
+      Format:
+      <concept>_vs_<concept>
+      
+      Examples
+      | Type                        | ID                          |
+      |-----------------------------|-----------------------------|
+      | Retention vs Erasure        | retention_vs_erasure        |
+      | Consent vs Legal Obligation | consent_vs_legal_obligation |
+      | Purpose vs Regulatory use   | purpose_vs_regulatory_use   |
 
       
-Rules:
-* use snake_case
-* no hierarchy required
+      Rules:
+      * use snake_case
+      * no hierarchy required
 
 ---
 
