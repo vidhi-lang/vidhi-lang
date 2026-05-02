@@ -31,7 +31,60 @@ This gap leads to:
 vidhi-lang provides a common language to bridge this gap.
 
 ---
+---
+ID Conventions
 
+vidhi-lang uses dot notation for stable, hierarchial identifiers.
+
+1. Data Categories (strict hierarchy)
+Format:
+<subject>.<category>.<subtype>
+
+Examples
+Type            |    ID
+Health data     |    user.health
+PAN             |    user.kyc.pan
+Aadhaar         |    user.kyc.aadhaar
+System logs     |    system.logs
+      
+This structure enables grouping, filtering, and future extensibility
+
+Rules:
+* lowercase, dot-separated
+* stable identifiers (referenced across files)
+
+2. Obligations (structured, readable)
+Format:
+<authority>.<action>.<object>
+
+Examples
+Type            |    ID
+Retain health   |    irdai.retain.health
+Erase health    |    dpdp.erase.personal
+Collect KYC     |    rbi.collect.kyc
+      
+Rules:
+* keep short and readable
+* avoid deep nesting
+
+3. Conflicts (simple identifiers)
+Format:
+<concept>_vs_<concept>
+
+Examples
+Type                                  |    ID
+Retention vs Erasure                  |    retention_vs_erasure
+Consent vs Legal Obligation           |    consent_vs_legal_obligation
+Purpose vs Regulatory use             |    purpose_vs_regulatory_use
+      
+Rules:
+* use snake_case
+* no hierarchy required
+
+
+
+
+---
 ## What vidhi-lang does
 
 vidhi-lang enables:
@@ -43,7 +96,7 @@ vidhi-lang enables:
 
 ---
 
-## What vidhi-lang does NOT do
+## What vidhi-lang Does NOT do
 
 vidhi-lang does **not**:
 
@@ -62,11 +115,16 @@ These responsibilities are left to implementing systems and organizations.
 ```yaml
 # taxonomies/data_categories.yaml
 
-- id: health_data
+- id: user.health
   description: Medical records and health information
 
-- id: kyc_data
-  description: Identity data such as PAN, Aadhaar
+- id: user.kyc.pan
+  description: Permanent Account Number
+
+- id: user.kyc.aadhaar
+  description: Aadhaar identifier
+
+
 ```
 
 ---
@@ -79,7 +137,7 @@ These responsibilities are left to implementing systems and organizations.
 - id: IRDAI_7_YEARS
   description: Retain health records for 7 years
   applies_to:
-    - health_data
+    - user.health
 ```
 
 ```yaml
@@ -88,8 +146,10 @@ These responsibilities are left to implementing systems and organizations.
 - id: DPDP_ERASURE
   description: Data principal has right to erasure
   applies_to:
-    - health_data
-    - kyc_data
+    - user.health
+    - user.kyc.pan
+    - user.kyc.aadhaaar
+  
 ```
 
 ---
@@ -104,9 +164,11 @@ source_tables:
   - patient_records
 data_subjects:
   - health_policyholders
-legal_basis: consent_and_contract
+legal_basis:
+  - consent
+  - contract
 data_used:
-  - health_data
+  - user.health
 retention_rule: IRDAI_7_YEARS
 ```
 
@@ -118,7 +180,7 @@ retention_rule: IRDAI_7_YEARS
 {
   "activity": "act_health_records",
   "data_subjects": ["health_policyholders"],
-  "data_categories": ["health_data"],
+  "data_categories": ["user.health"],
   "obligations": [
     "IRDAI: retain health records for 7 years",
     "DPDP: right to erasure"
@@ -151,9 +213,9 @@ vidhi-lang/
 │   ├── dpdp.yaml
 │   └── irdai.yaml
 ├── conflicts/
-│   └── retention_vs_erasure.yaml
+│   └── conflict_types.yaml
 ├── manifests/
-│   └── sample.yaml
+│   └── insurance_sample.yaml
 ├── examples/
 └── README.md
 ```
