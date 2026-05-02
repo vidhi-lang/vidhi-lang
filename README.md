@@ -34,7 +34,7 @@ vidhi-lang provides a common language to bridge this gap.
 
 ## ID Conventions
 
-vidhi-lang uses dot notation for stable, hierarchial identifiers.
+vidhi-lang uses dot notation for stable, hierarchical identifiers.
 
 ### 1. Data Categories (strict hierarchy)
       Format:
@@ -176,16 +176,19 @@ retention_rule: irdai.retain.health
 
 ---
 
-### 4. Expected structured output
+### 4. Expected structured output (RoPA-style)
 
 ```json
 {
-  "activity": "act_health_records",
-  "data_subjects": ["health_policyholders"],
-  "data_categories": ["user.health.record"],
-  "obligations": [
-    "IRDAI: retain health records for 7 years",
-    "DPDP: right to erasure"
+ "version": "0.1",
+ "fiduciary":"XYZ Insurance Co. Ltd",          
+ "activity": "act_health_records",
+ "purpose": "Maintain medical history for underwriting and claims",
+ "data_subjects": ["health_policyholders"],
+ "data_categories": ["user.health.record"],
+ "obligations": [
+        "irdai.retain.health",
+        "dpdp.erase.personal"
   ],
   "potential_conflicts": [
     "retention_vs_erasure"
@@ -207,23 +210,20 @@ This ensures vidhi-lang remains a shared standard without embedding legal interp
 ## Repository structure
 
 ```text
-| vidhi-lang/                   |
-|-------------------------------|
-| ├── taxonomies/               |
-| │   ├── data_categories.yaml  |
-| │   └── legal_bases.yaml      |
-| ├── obligations/              |
-| │   ├── dpdp.yaml             |
-| │   └── irdai.yaml            |
-| ├── conflicts/                |
-| │   └── conflict_types.yaml   |
-| ├── manifests/                |
-| │   └── insurance_sample.yaml |
-| ├── examples/                 |
-| └── README.md                 |
-
+vidhi-lang/
+├── taxonomies/
+│   ├── data_categories.yaml
+│   └── legal_bases.yaml
+├── obligations/
+│   ├── dpdp.yaml
+│   └── irdai.yaml
+├── conflicts/
+│   └── conflict_types.yaml
+├── manifests/
+│   └── insurance_sample.yaml
+├── examples/
+└── README.md
 ```
-
 ---
 
 ## Initial scope (v0.1)
