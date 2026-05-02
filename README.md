@@ -117,7 +117,7 @@ These responsibilities are left to implementing systems and organizations.
 ```yaml
 # taxonomies/data_categories.yaml
 
-- id: user.health
+- id: user.health.record
   description: Medical records and health information
 
 - id: user.kyc.pan
@@ -139,7 +139,7 @@ These responsibilities are left to implementing systems and organizations.
 - id: irdai.retain.health
   description: Retain health records for 7 years
   applies_to:
-    - user.health
+    - user.health.record
 ```
 
 ```yaml
@@ -148,7 +148,7 @@ These responsibilities are left to implementing systems and organizations.
 - id: dpdp.erase.personal
   description: Data principal has right to erasure
   applies_to:
-    - user.health
+    - user.health.record
     - user.kyc.pan
     - user.kyc.aadhaar
   
@@ -170,7 +170,7 @@ legal_basis:
   - consent
   - contract
 data_used:
-  - user.health
+  - user.health.record
 retention_rule: irdai.retain.health
 ```
 
@@ -182,7 +182,7 @@ retention_rule: irdai.retain.health
 {
   "activity": "act_health_records",
   "data_subjects": ["health_policyholders"],
-  "data_categories": ["user.health"],
+  "data_categories": ["user.health.record"],
   "obligations": [
     "IRDAI: retain health records for 7 years",
     "DPDP: right to erasure"
