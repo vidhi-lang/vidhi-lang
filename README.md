@@ -31,7 +31,7 @@ This gap leads to:
 vidhi-lang provides a common language to bridge this gap.
 
 ---
----
+
 ##ID Conventions
 
 vidhi-lang uses dot notation for stable, hierarchial identifiers.
