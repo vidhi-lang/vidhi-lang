@@ -41,12 +41,12 @@ vidhi-lang uses dot notation for stable, hierarchial identifiers.
       <subject>.<category>.<subtype>
 
       Examples
-      | Type        | ID               |
-      |-------------|------------------|
-      | Health data | user.health      |
-      | PAN         | user.kyc.pan     |
-      | Aadhaar     | user.kyc.aadhaar |
-      | System logs | system.logs      |
+      | Type        | ID                      |
+      |-------------|-------------------------|
+      | Health data | user.health.record      |
+      | PAN         | user.kyc.pan            |
+      | Aadhaar     | user.kyc.aadhaar        |
+      | System logs | system.logs.application |
             
       This structure enables grouping, filtering, and future extensibility
       
@@ -150,7 +150,7 @@ These responsibilities are left to implementing systems and organizations.
   applies_to:
     - user.health
     - user.kyc.pan
-    - user.kyc.aadhaaar
+    - user.kyc.aadhaar
   
 ```
 
