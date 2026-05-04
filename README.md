@@ -182,7 +182,7 @@ retention_rule: irdai.retain.health
 {
  "version": "0.1",
  "fiduciary":"XYZ Insurance Co. Ltd",          
- "activity": "act_health_records",
+ "activity": "insurance.health.record_management",
  "purpose": "Maintain medical history for underwriting and claims",
  "data_subjects": ["health_policyholders"],
  "data_categories": ["user.health.record"],
