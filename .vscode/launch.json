@@ -1,0 +1,80 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Generate RoPA (insurance_sample)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "vidhi_lang.cli",
+      "args": ["manifests/insurance_health_sample.yaml"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Generate RoPA (prompt for manifest)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "vidhi_lang.cli",
+      "args": ["${input:manifestPath}"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+
+    {
+      "name": "Run Backend (FastAPI)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "examples.app.backend.app:app",
+        "--reload",
+        "--port",
+        "8000"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+
+    {
+      "name": "Run Frontend (React)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/examples/app/frontend"
+    },
+
+
+    {
+      "name": "Debug current Python file",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ],
+  "inputs": [
+    {
+      "id": "manifestPath",
+      "type": "promptString",
+      "description": "Path to manifest YAML (relative to project root)",
+      "default": "manifests/insurance_sample.yaml"
+    }
+  ]
+}
