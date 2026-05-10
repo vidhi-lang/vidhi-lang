@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vidhi-lang"
+version = "0.1.0"
+description = "Open vocabulary for regulatory compliance in India"
+authors = [{ name = "gur_pradeep" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["pyyaml"]
+
+[project.scripts]
+vidhi = "vidhi_lang.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,21 @@
+# taxonomies/processing_activities.yaml <domain>.<process>.<activity>
+version: "0.1"
+
+activities:
+  - id: insurance.health.record_management
+    name: Health record management
+    description: Maintain medical history for underwriting and claims
+    data_categories:
+      - user.health.record
+    legal_basis:
+      - consent
+      - contract
+
+  - id: insurance.kyc.verification
+    name: KYC verification
+    description: Verify customer identity per regulatory requirements
+    data_categories:
+      - user.kyc.pan
+      - user.kyc.aadhaar
+    legal_basis:
+      - legal_obligation

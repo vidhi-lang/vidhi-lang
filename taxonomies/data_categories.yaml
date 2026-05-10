@@ -1,0 +1,19 @@
+# taxonomies/data_categories.yaml
+
+version: "0.1"
+
+categories:
+  - id: user.health.record
+    name: Health Data
+    description: Medical records and health-related data
+    sensitivity: health
+
+  - id: user.kyc.pan
+    name: PAN
+    description: Permanent Account Number
+    sensitivity: personal
+
+  - id: user.kyc.aadhaar
+    name: Aadhaar
+    description: Aadhaar identifier
+    sensitivity: sensitive_personal

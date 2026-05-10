@@ -1,0 +1,6 @@
+- id: dpdp.erase.personal
+  description: Data principal has right to erasure
+  applies_to:
+    - user.health.record
+    - user.kyc.pan
+    - user.kyc.aadhaar

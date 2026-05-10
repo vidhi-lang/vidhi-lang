@@ -1,0 +1,11 @@
+activity: insurance.health.record_management
+source_tables:
+  - patient_records
+data_subjects:
+  - health_policyholders
+legal_basis:
+  - consent
+  - contract
+data_used:
+  - user.health.record
+retention_rule: irdai.retain.health

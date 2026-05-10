@@ -1,0 +1,15 @@
+{
+  "version": "0.1",
+  "fiduciary": "XYZ Insurance Co. Ltd",
+  "activity": "act_health_records",
+  "purpose": "Maintain medical history for underwriting and claims",
+  "data_subjects": ["health_policyholders"],
+  "data_categories": ["user.health.record"],
+  "obligations": [
+    "irdai.retain.health",
+    "dpdp.erase.personal"
+  ],
+  "potential_conflicts": [
+    "retention_vs_erasure"
+  ]
+}

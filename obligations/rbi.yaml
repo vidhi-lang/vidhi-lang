@@ -1,0 +1,11 @@
+- id: rbi.collect.kyc
+  description: Collect and verify KYC information
+  applies_to:
+    - user.kyc.pan
+    - user.kyc.aadhaar
+
+- id: rbi.retain.kyc
+  description: Retain KYC records for 5 years
+  applies_to:
+    - user.kyc.pan
+    - user.kyc.aadhaar

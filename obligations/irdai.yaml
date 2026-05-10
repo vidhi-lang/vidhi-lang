@@ -1,0 +1,16 @@
+- id: irdai.retain.health
+  description: Retain health records for 7 years
+  applies_to:
+    - user.health.record
+
+- id: irdai.collect.kyc
+  description: Collect KYC information for policy issuance
+  applies_to:
+    - user.kyc.pan
+    - user.kyc.aadhaar
+
+- id: irdai.retain.kyc
+  description: Retain KYC records as per IRDAI norms
+  applies_to:
+    - user.kyc.pan
+    - user.kyc.aadhaar

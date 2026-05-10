@@ -1,0 +1,11 @@
+activity: insurance.kyc.verification
+source_tables:
+  - kyc_records
+data_subjects:
+  - customers
+legal_basis:
+  - legal_obligation
+data_used:
+  - user.kyc.pan
+  - user.kyc.aadhaar
+retention_rule: irdai.retain.kyc

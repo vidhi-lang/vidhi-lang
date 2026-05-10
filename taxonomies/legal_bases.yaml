@@ -1,0 +1,18 @@
+version: "0.1"
+
+legal_bases:
+  - id: consent
+    name: Consent
+    description: Data principal has given explicit consent
+
+  - id: contract
+    name: Contract
+    description: Processing necessary for performance of contract
+
+  - id: legal_obligation
+    name: Legal Obligation
+    description: Processing required to comply with law or regulation
+
+  - id: legitimate_use
+    name: Legitimate Use
+    description: Processing allowed under legitimate use (DPDP Section 7)
